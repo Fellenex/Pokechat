@@ -2,7 +2,6 @@
 #Converts ASCII text into Pokespeech through the use of their names.
 #The number of utterable segments in their name defines in which base the ASCII value will be represented.
 #The value at each index of the new-based integer will determine which segment is used.
-
 #The resulting pokespeech will delimit the original ASCII characters and words
 
 import os
@@ -156,9 +155,6 @@ def asciiFileToPokeWav(pokemon,inFilePath):
 		fileParams = currFile.getparams()
 		numChannels = currFile.getnchannels()
 		numFrames = currFile.getnframes()
-		#sampleWidth = currFile.getsampwidth()
-		#sampleFrequency = currFile.getframerate()
-		#compressionType = currFile.g
 		
 		#Read from the .wav file
 		dataString = currFile.readframes(numFrames*numChannels)
@@ -168,10 +164,6 @@ def asciiFileToPokeWav(pokemon,inFilePath):
 		
 	#Open the file and set header data
 	pokeWav = wave.open(pokeFilePath,'w')
-	#pokeWav.setnchannels(numChannels)
-	#pokeWav.setnframes(numFrames)
-	#pokeWav.setsampwidth(sampleWidth)
-	#pokeWav.setParams(numChannels,sampleWidth,sampleFrequency,numFrames,
 	
 	pokeWav.setparams(fileParams)
 	
